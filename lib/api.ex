@@ -1,6 +1,9 @@
 defmodule ExBlockCypher.API do
   @moduledoc """
-  Define base API function used by the wrapper
+  Define basic functions for each module of the API.
+
+  This module uses HTTPoison.Base to process requests and responses.
+  Responses are decoded using Poison.
   """
 
   defmacro __using__(_opts) do
@@ -22,8 +25,6 @@ defmodule ExBlockCypher.API do
       def build_url(endpoint, currency, network, opts \\ [])
 
       def build_url(_, currency, network, _opts) do
-        #        currency = Keyword.get(opts, :currency, :btc)
-        #        networl = Keyword.get(opts, :network, :main)
         "/#{currency}/#{network}"
       end
 
